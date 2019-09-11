@@ -29,9 +29,8 @@ app.length("/scrape", function (req, res){
             results.title = $(this)
             results.link = $(this)
 
-            // add name from exported article model page
-            db. .create(results).then(function(db ){
-                console.log(db);
+            db.ScrapeArticle.create(results).then(function(dbScrapeArticle){
+                console.log(dbScrapeArticle);
             }).catch(function (err){
                 console.log(err);
             });
@@ -52,7 +51,7 @@ app.get("", fuction(req, res){
 // create post route-- bring in exported model from notes.js
 app.post("", funtion(req, res){
     // refer to 97-102 in activity 20
-    db. .create(req.body).then(function(db ){
+    db.ScrapedNote.create(req.body).then(function(db){
         return db. .findBy( , { $set: {note: db .}, {new: true});
     }).then(function(db ){
         res.json(db );
