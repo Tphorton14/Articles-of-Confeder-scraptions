@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema
 
 // find new requirements for ScrapeArticles
-const ArticlesSchema = new Schema ({
+const ArticleSchema = new Schema ({
         title: {
             type: String,
             require: true
@@ -16,12 +16,12 @@ const ArticlesSchema = new Schema ({
             require: true
         },
         note: {
-            type: Schema.Types.ObjectId.Id,
+            type: Schema.Types.ObjectId,
             ref: "Note"
         }
     
 });
 
-const ScrapeArticle = mongoose.model("Articles", ArticlesSchema);
+const ScrapeArticle = mongoose.model("Articles", ArticleSchema);
 
 module.exports = ScrapeArticle;
