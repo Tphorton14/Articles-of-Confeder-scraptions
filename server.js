@@ -1,3 +1,4 @@
+// Homework READme suggests to use express-handlebars (line 15)
 const express = require("express");
 const mongoose = require('mongoose');
 
@@ -32,20 +33,21 @@ app.get("/scrape", function (req, res) {
             results.summary = $(this).children("p").text();
 
             results.link = $(this).children("a").attr("href");
-            console.log(results);
 
             db.ScrapeArticle.create(results).then(function (dbScrapeArticle) {
-                console.log(dbScrapeArticle);
+                // res.send(dbScrapeArticle);
             }).catch(function (err) {
                 console.log(err);
             });
         });
-        res.send("You're scrape has been completed!");
+        // is findAll correct to use?
+        db.ScrapeArticle.find().then(collection => res.send(collection))
     });
 });
 
 // create GET route to grab specific articles, the populate
 app.get("/article", function (req, res) {
+                    // is findAll correct to use?
     db.ScrapeArticle.find({ }).then(function (dbArticle) {
         res.json(dbScrapeArticle);
     }).catch(function (err) {
