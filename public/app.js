@@ -1,6 +1,6 @@
 $.get('/scrape', data => {
     for (let i = 0; i < data.length; i++) {
-        $("#article").append("<p article-id='" + data[i]._id + "'>" + data[i].title + "<br />" + data[i].link + "</p>");
+        $("#article").append("<p article-id='" + data[i]._id + "'>" + data[i].title + "<br />" + "<a href=" + data[i].link + ">" + data[i].link + "</a>" + "</p>");
     }
 
 })
