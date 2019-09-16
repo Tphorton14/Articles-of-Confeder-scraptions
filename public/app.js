@@ -1,6 +1,12 @@
 $.get('/scrape', data => {
     for (let i = 0; i < data.length; i++) {
-        $("#article").append("<p article-id='" + data[i]._id + "'>" + data[i].title + "<br />" + "<a href=" + data[i].link + ">" + data[i].link + "</a>" + "</p>");
+        // $("#article").append("<p article-id='" + data[i]._id + "'>" + data[i].title + "<br />" + "<a href=" + data[i].link + ">" + data[i].link + "</a>" + "</p>");
+        $("#article").append(`
+        <p article-id='${data[i]._id} '> 
+        ${ data[i].title}<br />
+        <a href="${data[i].link}" >${data[i].link}</a>
+         <button id="">Create Note</button> </p >`); 
+
     }
 
 })
@@ -12,7 +18,8 @@ $.getJSON("/article", function (data) {
     }
 });
 
-$(document).on("click", "p", function () {
+
+$(document).on("click", "button", function () {
     $("#note").empty();
     const thisId = $(this).attr("notes-id");
 
@@ -25,7 +32,7 @@ $(document).on("click", "p", function () {
         $("#note").append("<h2>" + data.title + "</h2>");
         $("#note").append("<input id ='titleInput' name='title' />");
         $("#note").append("<textarea id='bodyInput' name='body'></textarea>");
-        $("#note").append("<button notes-id='" > + data._id + " 'id='savenote'>Click here to save note</button>");
+        $("#note").append("<button notes-id='" > + data._id + " 'id=savenote'>Click here to save note</button>");
 
         if (data.note) {
             $("#titleInput").val(data.note.title);

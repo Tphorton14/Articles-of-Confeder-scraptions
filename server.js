@@ -1,7 +1,8 @@
 // Homework READme suggests to use express-handlebars (line 15)
 const express = require("express");
 const mongoose = require('mongoose');
-
+const exphbs = require("express-handlebars")
+    ;
 const axios = require("axios");
 const cheerio = require("cheerio");
 
@@ -10,7 +11,6 @@ const db = require("./models");
 const PORT = process.env.PORT || 8080;
 
 const app = express();
-
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static("public"));
@@ -47,38 +47,46 @@ app.get("/scrape", function (req, res) {
 
 // create GET route to grab specific articles, the populate
 app.get("/article", function (req, res) {
-                    // is findAll correct to use?
-    db.ScrapeArticle.find({ }).then(function (dbArticle) {
+    // is findAll correct to use?
+    db.ScrapeArticle.find({ where: { saved: false } }).then(function (dbArticle) {
         res.json(dbScrapeArticle);
     }).catch(function (err) {
         res.json(err);
     });
 });
 
-app.get("/article/:id", function(req, res) {
-    db.ScrapeArticle.findById(req.params.id).populate("note").then(function(dbScrapeArticle){
+app.get("/article/:id", function (req, res) {
+    db.ScrapeArticle.findById(req.params.id).populate("note").then(function (dbScrapeArticle) {
         res.json(dbScrapeArticle);
     });
 });
 
-app.post('/article/:id', function(req, res){
-    db.ScrapedNote.create(req.body).then(function(dbScrapedNote){
-        return db.ScrapeArticle.findByIdAndUpdate(req.params.id, { $set: dbScrapedNote._id}, { new: true});
-    }).then(function(dbScrapeArticle){
+app.post('/article/:id', function (req, res) {
+    db.ScrapedNote.create(req.body).then(function (dbScrapedNote) {
+        return db.ScrapeArticle.findByIdAndUpdate(req.params.id, { $set: dbScrapedNote._id }, { new: true });
+    }).then(function (dbScrapeArticle) {
         res.json(dbScrapeArticle);
     });
 });
 
-    // // create post route-- bring in exported model from notes.js
-    // app.post("", funtion(req, res){
-    //     // refer to 97-102 in activity 20
-    //     db.ScrapedNote.create(req.body).then(function(db){
-    //         return db. .findBy( , { $set: {note: db .}, {new: true});
-    //     }).then(function(db ){
-    //         res.json(db );
-    //     });
-    // });
-
-    app.listen(PORT, function () {
-        console.log('App listening on port ' + PORT + "!");
+app.get("/saved", function (req, res) {
+    // is findAll correct to use?
+    db.ScrapeArticle.find({ where: { saved: true } }).then(function (dbArticle) {
+        res.json(dbScrapeArticle);
+    }).catch(function (err) {
+        res.json(err);
     });
+});
+// // create post route-- bring in exported model from notes.js
+// app.post("", funtion(req, res){
+//     // refer to 97-102 in activity 20
+//     db.ScrapedNote.create(req.body).then(function(db){
+//         return db. .findBy( , { $set: {note: db .}, {new: true});
+//     }).then(function(db ){
+//         res.json(db );
+//     });
+// });
+
+app.listen(PORT, function () {
+    console.log('App listening on port ' + PORT + "!");
+});
