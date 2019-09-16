@@ -1,5 +1,5 @@
 {
-  "name": "Articles-of-Confeder-scraptions",
+  "name": "articles",
   "version": "1.0.0",
   "description": "ArticlesScrape",
   "main": "server.js",
