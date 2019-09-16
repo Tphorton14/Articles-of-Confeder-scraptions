@@ -12,7 +12,7 @@
     <style>
         body { background-color: rgb(0, 0, 0) }
         #wrapper {
-          width: 1000px;
+          width: 950px;
           margin-left: auto;
           margin-right: auto;
           padding-top: 5%;
@@ -20,13 +20,14 @@
         #article {
           display: inline-block;
           overflow: auto;
-          width: 80%;
+          width: 60%;
           height: 700px;
           
         }
         #note {
           float: right;
           width: 30%;
+          color: white;
         }
         textarea, input {
           display: block;
@@ -36,10 +37,13 @@
         input {
           height: 36px;
           font-size: 24px;
+          color: white;
         }
+        
         textarea {
           height: 200px;
           font-size: 18px;
+          color: white;
         }
 
         p {
@@ -56,20 +60,12 @@
 
 <body>
 
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">Articles of Confeder-scraption</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
-      aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav">
-        <a class="nav-item nav-link active" href="#">Home <span class="sr-only"></span></a>
-        <a class="nav-item nav-link" href="#">Saved Articles</a>
-        
-      </div>
+  <div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="display-4 text-center">Articles of Confeder-scrape-tions</h1>
+      <p class="lead text-center">Find an aticle that interests you, read it, and leave notes!</p>
     </div>
-  </nav>
+  </div>
 
   <div id="wrapper">
     <h1></h1>
