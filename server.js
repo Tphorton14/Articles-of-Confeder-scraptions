@@ -1,9 +1,9 @@
 // Homework READme suggests to use express-handlebars (line 15)
 const express = require("express");
 const mongoose = require('mongoose');
-const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/8080";
+const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
 
-mongoose.createConnection(MONGODB_URI);
+mongoose.createConnections(MONGODB_URI, { useNewUrlParser: true });
 
     
 const axios = require("axios");
