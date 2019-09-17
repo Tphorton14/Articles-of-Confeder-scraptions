@@ -3,7 +3,7 @@ const express = require("express");
 const mongoose = require('mongoose');
 const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/8080";
 
-mongoose.connect(MONGODB_URI);
+mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
 
     
 const axios = require("axios");
