@@ -50,7 +50,7 @@ app.get("/scrape", function (req, res) {
 // create GET route to grab specific articles, the populate
 app.get("/article", function (req, res) {
     // is findAll correct to use?
-    db.ScrapeArticle.find({ where: { saved: false } }).then(function (dbArticle) {
+    db.ScrapeArticle.find({ where: { saved: true } }).then(function (dbArticle) {
         res.json(dbScrapeArticle);
     }).catch(function (err) {
         res.json(err);
