@@ -3,7 +3,6 @@ const express = require("express");
 const mongoose = require('mongoose');
 const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/8080";
 
-mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
 
     
 const axios = require("axios");
@@ -17,6 +16,8 @@ const app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static("public"));
+
+mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
 
 // GET route for scraping 
 app.get("/scrape", function (req, res) {
@@ -50,7 +51,7 @@ app.get("/scrape", function (req, res) {
 // create GET route to grab specific articles, the populate
 app.get("/article", function (req, res) {
     // is findAll correct to use?
-    db.ScrapeArticle.find({ }).then(function (dbArticle) {
+    db.ScrapeArticle.find({ }).then(function (dbScrapeArticle) {
         res.json(dbScrapeArticle);
     }).catch(function (err) {
         res.json(err);
