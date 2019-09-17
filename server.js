@@ -65,7 +65,7 @@ app.get("/article/:id", function (req, res) {
 
 app.post('/article/:id', function (req, res) {
     db.ScrapedNote.create(req.body).then(function (dbScrapedNote) {
-        return db.ScrapeArticle.findByIdAndUpdate(req.params.id, { $set: dbScrapedNote._id }, { new: true });
+        return db.ScrapeArticle.findByIdAndUpdate(req.params.id, { $set: dbScrapedNote._id }, { new: false });
     }).then(function (dbScrapeArticle) {
         res.json(dbScrapeArticle);
     });
