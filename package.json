@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js",
+    "start": "node server.js"
     
   },
   "repository": {
@@ -19,7 +19,6 @@
     "url": "https://github.com/Tphorton14/Articles-of-Confeder-scraptions/issues"
   },
   "homepage": "https://git.heroku.com/warm-journey-44123.git",
-  "MONGODB_URI": "mongodb://heroku_nm9vq20t:b52hgi5aatllsna1ui82j7p69i@ds027483.mlab.com:27483/heroku_nm9vq20t",
   "dependencies": {
     "axios": "^0.19.0",
     "cheerio": "^1.0.0-rc.3",
