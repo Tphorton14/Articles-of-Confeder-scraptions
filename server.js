@@ -3,7 +3,7 @@ const express = require("express");
 const mongoose = require('mongoose');
 const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/8080";
 
-mongoose.create(MONGODB_URI);
+mongoose.createConnection(MONGODB_URI);
 
     
 const axios = require("axios");
@@ -11,7 +11,7 @@ const cheerio = require("cheerio");
 
 const db = require("./models");
 
-// const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 8080;
 
 const app = express();
 app.use(express.urlencoded({ extended: true }));
