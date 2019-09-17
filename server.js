@@ -1,7 +1,7 @@
 // Homework READme suggests to use express-handlebars (line 15)
 const express = require("express");
 const mongoose = require('mongoose');
-var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
+const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
 
 mongoose.connect(MONGODB_URI);
 
@@ -17,7 +17,7 @@ const app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static("public"));
-mongoose.connect("mongodb://tphorton:password1@ds123129.mlab.com:23129/heroku_1wc3cmf0", { useNewUrlParser: true });
+// mongoose.connect("mongodb://tphorton:password1@ds123129.mlab.com:23129/heroku_1wc3cmf0", { useNewUrlParser: true });
 
 // GET route for scraping 
 app.get("/scrape", function (req, res) {
