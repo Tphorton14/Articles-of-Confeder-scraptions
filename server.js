@@ -14,7 +14,7 @@ const app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static("public"));
-mongoose.connect("mongodb://localhost/unit18Populater", { useNewUrlParser: true });
+mongoose.connect("mongodb://tphorton:password1@ds123129.mlab.com:23129/heroku_1wc3cmf0", { useNewUrlParser: true });
 
 // GET route for scraping 
 
