@@ -5,7 +5,8 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node server.js",
+    "MONGODB_URI": "mongodb://heroku_nm9vq20t:b52hgi5aatllsna1ui82j7p69i@ds027483.mlab.com:27483/heroku_nm9vq20t"
   },
   "repository": {
     "type": "git",
