@@ -1,7 +1,7 @@
 // Homework READme suggests to use express-handlebars (line 15)
 const express = require("express");
 const mongoose = require('mongoose');
-const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
+const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/8080";
 
 mongoose.createConnections(MONGODB_URI, { useNewUrlParser: true });
 
