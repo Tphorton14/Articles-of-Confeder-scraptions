@@ -1,6 +1,7 @@
 // Homework READme suggests to use express-handlebars (line 15)
 const express = require("express");
 const mongoose = require('mongoose');
+var mongoDB = "mongodb://tphorton:password1@ds123129.mlab.com:23129/heroku_1wc3cmf0";
 
     
 const axios = require("axios");
@@ -14,9 +15,9 @@ const app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static("public"));
-mongoose.connect("mongodb://tphorton:password1@ds123129.mlab.com:23129/heroku_1wc3cmf0", { useNewUrlParser: true });
+mongoose.connect(mongoDB, { useNewUrlParser: true });
 
-// GET route for scraping 
+// GET route for scraping git
 
 app.get("/scrape", function (req, res) {
     axios.get("https://www.c-span.org/").then(function (response) {
