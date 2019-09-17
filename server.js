@@ -5,9 +5,6 @@ const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/8080";
 
 mongoose.createConnection(MONGODB_URI);
 
-var UserModel = mongoose.model('User', User);
-var user = new UserModel(req.body
-
     
 const axios = require("axios");
 const cheerio = require("cheerio");
@@ -20,8 +17,6 @@ const app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static("public"));
-
-user.save(function(){})
 
 // GET route for scraping 
 app.get("/scrape", function (req, res) {
