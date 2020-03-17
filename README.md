@@ -8,6 +8,8 @@ When a user visits the site, the app will scrape stories from C-span.org and dis
 Headline - the title of the article
 Users is able to leave comments on the articles displayed and revisit them later. The comments are saved to the database as well and associated with their articles. Users will be be able to read and delete comments left on articles displayed. All stored comments are visible to every user.
 
+![Demo of Game](https://github.com/Tphorton14/Articles-of-Confeder-scraptions/blob/master/gifs/Articles.gif)
+
 
 
 
